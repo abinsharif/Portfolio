@@ -1,8 +1,9 @@
-/* Smooth gradient animation */
 .hero-section {
     background: linear-gradient(120deg, #1a73e8, #673ab7);
     background-size: 300% 300%;
     animation: gradientMove 10s ease infinite;
+    overflow: hidden;
+    position: relative;
 }
 
 @keyframes gradientMove {
@@ -11,12 +12,24 @@
     100% { background-position: 0%; }
 }
 
-/* Slight fade on scroll */
-[data-aos] {
-    transition: all 0.7s ease-in-out;
+/* Particles canvas */
+#particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.25;
 }
 
-/* Text color animation in hero */
-#changingColorText {
-    transition: color 1s linear;
+/* Typewriter */
+#typewriter {
+    font-size: 1.7rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Progress Bars animated by JS */
+.progress-bar {
+    transition: width 1.6s ease;
 }
