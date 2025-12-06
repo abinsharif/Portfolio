@@ -1,0 +1,22 @@
+/* Smooth gradient animation */
+.hero-section {
+    background: linear-gradient(120deg, #1a73e8, #673ab7);
+    background-size: 300% 300%;
+    animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0%; }
+    50% { background-position: 100%; }
+    100% { background-position: 0%; }
+}
+
+/* Slight fade on scroll */
+[data-aos] {
+    transition: all 0.7s ease-in-out;
+}
+
+/* Text color animation in hero */
+#changingColorText {
+    transition: color 1s linear;
+}
