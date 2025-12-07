@@ -13,7 +13,7 @@ const skillObserver = new IntersectionObserver(entries => {
       document.getElementById('cBar').style.width = '60%';
       document.getElementById('pentestBar').style.width = '70%';
       // ring animation
-      animateRing(92);
+      animateRing(75);
       skillObserver.disconnect();
     }
   });
