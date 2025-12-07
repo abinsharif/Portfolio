@@ -1,0 +1,153 @@
+/* TUNABLE VARIABLES
+   Edit these to move headings up/down or add bottom space under contact.
+   Values use rem for convenience.
+*/
+:root{
+  --accent1: #1a73e8;
+  --accent2: #6a1b9a;
+  --accent3: #00b894;
+  --bg-dark: #0b0f17;
+  --glass: rgba(255,255,255,0.04);
+  --neon: 0 0 18px rgba(0,255,220,0.12), 0 0 36px rgba(0,255,220,0.06);
+  --text-light: #e9eef8;
+
+  /* section spacing you can tweak */
+  --section-top-padding-about: 5rem;      /* increases space above About heading */
+  --section-top-padding-projects: 5.8rem;   /* increases space above Projects heading */
+  --section-top-padding-contact: 10rem;    /* increases space above Contact heading */
+  --section-bottom-padding-contact: 0rem; /* space below Contact section */
+}
+
+html,body{height:100%;background:linear-gradient(180deg,#05060a 0%, #071129 100%);color:var(--text-light);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+a { color: var(--accent1); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------- NAVBAR ---------- */
+.navbar { background: linear-gradient(90deg, rgba(10,10,12,0.85), rgba(20,20,28,0.75)); backdrop-filter: blur(6px); }
+.navbar-brand { letter-spacing: 0.6px; }
+
+/* ---------- HERO (fixed look + animated gradient) ---------- */
+.hero {
+  height: 92vh;
+  min-height: 520px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  padding-top:48px;
+}
+
+.hero-inner {
+  width:100%;
+  max-width:1100px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  position: relative;
+  z-index: 5;
+}
+
+.hero-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 8px 30px rgba(2,8,23,0.6);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* moving gradient band behind hero */
+.hero-bg {
+  position: absolute;
+  inset: -20% -10% auto -10%;
+  height: 160%;
+  background: linear-gradient(120deg, var(--accent1), var(--accent2), var(--accent3));
+  filter: blur(46px);
+  opacity: 0.22;
+  transform-origin: center;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  z-index: 1;
+  background-size: 400% 400%;
+  animation: heroGradient 12s linear infinite;
+}
+@keyframes heroGradient {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* Geometric decorations (SVG-like shapes) */
+.geoshape {
+  position: absolute;
+  z-index: 2;
+  opacity: 0.14;
+  mix-blend-mode: screen;
+  transform: translateZ(0);
+}
+.geo-1 { width: 320px; height: 320px; right: -40px; top: 10%; transform: rotate(18deg); }
+.geo-2 { width: 220px; height: 220px; left: -40px; bottom: 8%; transform: rotate(-8deg); }
+
+/* ---------- SKILLS ---------- */
+.skills-section { padding: 4.5rem 0; background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent); }
+.skill-label { font-weight:600; font-size:0.95rem; color: #dfe9ff; }
+
+/* circular skill ring */
+.skill-ring { width:140px; height:140px; border-radius:50%; display:inline-grid; place-items:center; background: conic-gradient(var(--accent1) 0% 0%, rgba(255,255,255,0.04) 0% 100%); position:relative; }
+.skill-ring .inner { width:110px; height:110px; border-radius:50%; background: rgba(3,6,18,0.6); display:flex;align-items:center;justify-content:center;flex-direction:column; font-weight:700;}
+.skill-percent { font-size:1.25rem; color:var(--text-light); }
+
+/* progress bars custom */
+.progress { height:12px; background: rgba(255,255,255,0.04); border-radius:8px; overflow:hidden; }
+.progress-bar { transition: width 1.4s cubic-bezier(.2,.9,.2,1); box-shadow: var(--neon); }
+
+/* ---------- PROJECTS (neon border animation + cards slide) ---------- */
+.projects-section { padding:4.5rem 0; }
+.proj-card { border-radius:12px; overflow:hidden; position:relative; border:1px solid rgba(255,255,255,0.04); background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); transition: transform .45s ease, box-shadow .45s ease; }
+.proj-card:hover { transform: translateY(-8px) scale(1.01); box-shadow: 0 30px 60px rgba(3,8,30,0.6); }
+.neon-border {
+  position:absolute; inset:0; pointer-events:none; border-radius:12px;
+  background: linear-gradient(90deg, rgba(0,255,220,0.06), rgba(26,115,232,0.06), rgba(106,27,154,0.04));
+  mix-blend-mode: screen;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.02);
+  mask: linear-gradient(#000,#000);
+  animation: neonPulse 3.2s ease-in-out infinite;
+  opacity:0.85;
+}
+@keyframes neonPulse {
+  0% { filter: drop-shadow(0 0 8px rgba(0,255,220,0.06)); transform: translateY(0) }
+  50% { filter: drop-shadow(0 0 22px rgba(26,115,232,0.06)); transform: translateY(-2px) }
+  100% { filter: drop-shadow(0 0 8px rgba(106,27,154,0.04)); transform: translateY(0) }
+}
+
+/* cards text */
+.proj-title { font-weight:700; letter-spacing:0.2px; color:#f5fbff; }
+.proj-desc { color: #d4e0ff; font-size:0.95rem; line-height:1.45; }
+
+/* ---------- CONTACT / LINKS ---------- */
+.contact-section { padding:3.5rem 0; border-top: 1px dashed rgba(255,255,255,0.03); }
+
+/* ---------- FOOTER ---------- */
+footer { padding:1.5rem 0; background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.85)); color: #98a6d6; font-size:0.95rem; }
+
+/* ---------- Smooth scrolling helper ---------- */
+html { scroll-behavior: smooth; }
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 768px) {
+  .hero-card { padding: 1.6rem; }
+  .hero-bg { filter: blur(34px); }
+  .geoshape { display:none; }
+}
+
+/* ---------- Section spacing overrides (tweak here) ---------- */
+/* These values ensure headings sit fully on the dark background and not on the hero gradient */
+/* Use section-specific selectors and !important so Bootstrap utility classes don't override them */
+section#about { padding-top: var(--section-top-padding-about) !important; }
+section#projects, section#projects .projects-section { padding-top: var(--section-top-padding-projects) !important; }
+
+/* contact top + bottom enforced */
+section#contact { 
+  padding-top: var(--section-top-padding-contact) !important; 
+  padding-bottom: var(--section-bottom-padding-contact) !important;
+}
+
+/* small quick-facts tweak */
+.quick-facts { margin-top: 0.6rem; }
