@@ -6,14 +6,15 @@ AOS.init({ once: true, duration: 750 });
 const skillObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      document.getElementById('htmlBar').style.width = '70%';
-      document.getElementById('cssBar').style.width = '80%';
-      document.getElementById('jsBar').style.width = '80%';
-      document.getElementById('pyBar').style.width = '85%';
-      document.getElementById('cBar').style.width = '60%';
-      document.getElementById('pentestBar').style.width = '70%';
+      document.getElementById('htmlBar').style.width = '90%';
+      document.getElementById('cssBar').style.width = '84%';
+      document.getElementById('jsBar').style.width = '96%';
+      document.getElementById('pyBar').style.width = '100%';
+      document.getElementById('sqliteBar').style.width = '80%';
+      document.getElementById('cBar').style.width = '88%';
+      document.getElementById('pentestBar').style.width = '68%';
       // ring animation
-      animateRing(75);
+      animateRing(90);
       skillObserver.disconnect();
     }
   });
