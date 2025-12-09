@@ -13,12 +13,18 @@
 
   /* section spacing you can tweak */
   --section-top-padding-about: 5rem;      /* increases space above About heading */
+  --section-top-padding-skills: 2.2rem;      /* increases space above Skills heading */
   --section-top-padding-projects: 5.8rem;   /* increases space above Projects heading */
-  --section-top-padding-contact: 10rem;    /* increases space above Contact heading */
+  --section-top-padding-contact: 3.4rem;    /* increases space above Contact heading */
   --section-bottom-padding-contact: 0rem; /* space below Contact section */
 }
 
-html,body{height:100%;background:linear-gradient(180deg,#05060a 0%, #071129 100%);color:var(--text-light);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+html,body{
+  height:100%;
+  background:linear-gradient(180deg,#05060a 0%, #071129 100%);
+  color:var(--text-light);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+}
 a { color: var(--accent1); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
@@ -99,7 +105,7 @@ a:hover { text-decoration: underline; }
 .progress-bar { transition: width 1.4s cubic-bezier(.2,.9,.2,1); box-shadow: var(--neon); }
 
 /* ---------- PROJECTS (neon border animation + cards slide) ---------- */
-.projects-section { padding:4.5rem 0; }
+.projects-section { padding:4.5rem; }
 .proj-card { border-radius:12px; overflow:hidden; position:relative; border:1px solid rgba(255,255,255,0.04); background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); transition: transform .45s ease, box-shadow .45s ease; }
 .proj-card:hover { transform: translateY(-8px) scale(1.01); box-shadow: 0 30px 60px rgba(3,8,30,0.6); }
 .neon-border {
@@ -141,7 +147,11 @@ html { scroll-behavior: smooth; }
 /* These values ensure headings sit fully on the dark background and not on the hero gradient */
 /* Use section-specific selectors and !important so Bootstrap utility classes don't override them */
 section#about { padding-top: var(--section-top-padding-about) !important; }
-section#projects, section#projects .projects-section { padding-top: var(--section-top-padding-projects) !important; }
+section#skills { 
+  padding-top: var(--section-top-padding-skills) !important; 
+  padding-bottom: 0;
+}
+section#projects { padding-top: var(--section-top-padding-projects) !important; }
 
 /* contact top + bottom enforced */
 section#contact { 
